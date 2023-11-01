@@ -10,6 +10,8 @@ import Config
 config :terraloc,
   ecto_repos: [Terraloc.Repo]
 
+config :terraloc, :generators, api_prefix: "/api/v1"
+
 # Configures the endpoint
 config :terraloc, TerralocWeb.Endpoint,
   url: [host: "localhost"],

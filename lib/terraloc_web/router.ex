@@ -5,8 +5,10 @@ defmodule TerralocWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", TerralocWeb do
+  scope "/api/v1", TerralocWeb do
     pipe_through :api
+
+    get "/geolocations/:ip_address", GeolocationController, :show
   end
 
   # Enable LiveDashboard in development
