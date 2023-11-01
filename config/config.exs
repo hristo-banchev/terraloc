@@ -22,6 +22,12 @@ config :terraloc, TerralocWeb.Endpoint,
   pubsub_server: Terraloc.PubSub,
   live_view: [signing_salt: "HdMsT3mh"]
 
+config :terraloc_ingest, :ingestions,
+  vio_com_ingest: [
+    repo: Terraloc.Repo,
+    schema: Terraloc.Geolocations.Geolocation
+  ]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
