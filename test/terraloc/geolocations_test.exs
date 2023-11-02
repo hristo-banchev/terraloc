@@ -22,9 +22,9 @@ defmodule Terraloc.GeolocationsTest do
       city: String.duplicate("a", 150),
       country: String.duplicate("b", 150),
       country_code: "DEDE",
-      ip_address: "255.255.255.255.255",
-      latitude: "52.5162369345734750000000000",
-      longitude: "13.37276510847560700000000000"
+      ip_address: "006.255.255.255",
+      latitude: "some text",
+      longitude: "1324.37276510847560700000000000"
     }
 
     @blank_attrs %{
@@ -75,12 +75,12 @@ defmodule Terraloc.GeolocationsTest do
       assert {:error,
               %Ecto.Changeset{
                 errors: [
-                  longitude: {"should be at most %{count} character(s)", _},
-                  latitude: {"should be at most %{count} character(s)", _},
+                  longitude: {"has invalid format", _},
+                  latitude: {"has invalid format", _},
                   city: {"should be at most %{count} character(s)", _},
                   country: {"should be at most %{count} character(s)", _},
-                  country_code: {"should be at most %{count} character(s)", _},
-                  ip_address: {"should be at most %{count} character(s)", _}
+                  country_code: {"has invalid format", _},
+                  ip_address: {"has invalid format", _}
                 ]
               }} = Geolocations.create_geolocation(@invalid_attrs)
     end
@@ -108,12 +108,12 @@ defmodule Terraloc.GeolocationsTest do
       assert {:error,
               %Ecto.Changeset{
                 errors: [
-                  longitude: {"should be at most %{count} character(s)", _},
-                  latitude: {"should be at most %{count} character(s)", _},
+                  longitude: {"has invalid format", _},
+                  latitude: {"has invalid format", _},
                   city: {"should be at most %{count} character(s)", _},
                   country: {"should be at most %{count} character(s)", _},
-                  country_code: {"should be at most %{count} character(s)", _},
-                  ip_address: {"should be at most %{count} character(s)", _}
+                  country_code: {"has invalid format", _},
+                  ip_address: {"has invalid format", _}
                 ]
               }} = Geolocations.update_geolocation(geolocation, @invalid_attrs)
 
